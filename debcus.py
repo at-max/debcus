@@ -6,7 +6,6 @@ def show_menu():
     print("2. KDE Plasma kur")
     print("3. MATE kur")
     print("4. Cinnamon kur")
-    print("5. Openbox kur")
     choice = input("Seçiminizi girin: ")
     return choice
 
@@ -26,23 +25,6 @@ def install_cinnamon():
     subprocess.run(['sudo', 'apt-get', 'update'])
     subprocess.run(['sudo', 'apt-get', 'install', '-y', 'cinnamon'])
 
-def install_openbox():
-    subprocess.run(['sudo', 'apt-get', 'update'])
-    subprocess.run(['sudo', 'apt-get', 'install', '-y', 'openbox'])
-    install_openbox_panels()
-
-def install_openbox_panels():
-    print("Lütfen bir panel seçin: ")
-    print("1. Tint2")
-    print("2. LXPanel")
-    panel_choice = input("Seçiminizi girin: ")
-    if panel_choice == "1":
-        subprocess.run(['sudo', 'apt-get', 'install', '-y', 'tint2'])
-    elif panel_choice == "2":
-        subprocess.run(['sudo', 'apt-get', 'install', '-y', 'lxpanel'])
-    else:
-        print("Geçersiz seçim.")
-
 choice = show_menu()
 
 if choice == "1":
@@ -56,9 +38,6 @@ elif choice == "3":
     web()
 elif choice == "4":
     install_cinnamon()
-    web()
-elif choice == "5":
-    install_openbox()
     web()
 else:
     print("Geçersiz seçim.")
